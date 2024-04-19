@@ -1,0 +1,110 @@
+body{
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: #09090b;
+}
+
+.menu{
+	width: 80%;
+	height: 100%;
+	/* border: 2px solid red; */
+	text-align: left;
+	background-color: #27272a;
+	border-radius: 5px;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+	
+}
+
+@media only screen and (max-width: 1200px) {
+	.menu{
+			display: flex;
+			flex-wrap: wrap;
+			text-align: center;
+			justify-content: center;
+			margin: auto;
+			
+	}
+
+	.buttons{
+			margin: auto;
+			display: block;
+			justify-content: center;
+			align-items: center;
+			
+	}
+	.title{
+			margin: auto;
+	}
+}
+
+.title{
+	background-color: rgb(0, 0, 0);
+	text-align: center;
+	color: orange;
+	width: 170px;
+	border-radius: 5px;
+	padding: 8px;
+	border: 1px solid orange;
+	margin-left: 10px;
+}
+
+.login, .register{
+	height: 100%;
+	padding: 15px;
+	font-weight: bold;
+	font-size: 18px;
+	border: 1px solid orange;
+	border-radius: 5px;
+	background-color: black;
+	cursor: pointer;
+	align-items: flex-end;
+	margin: 5px;
+
+	
+}
+
+.buttons{
+	/* border: 2px solid red; */
+	float: right;
+	margin-right: 10px;
+}
+
+.main{
+	margin: auto;
+	background-color: #27272a;
+	margin-top: 20px;
+	border-radius: 5px;
+	width: 80%;
+	
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.card{
+	width: 250px;
+	padding: 10px;
+	text-align: center;
+	word-wrap: break-word;
+	color: white;
+	background-color: #09090b;
+	border-radius: 5px;
+	border-left: 3px solid orange;
+	border-top: 3px solid orange;
+	
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.card h1{
+	background-color: #27272a;
+	border-radius: 10px;
+}
+.card p{
+	background-color: #27272a;
+	border-radius: 5px;
+	padding: 5px;
+}
