@@ -4,42 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dad Jokes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;v=1713522661552">
 </head>
-<body>
-    <div class="menu">
-        <h1 class="title">Dad <span style="background-color: orange; color: rgb(0, 0, 0); padding: 4px; border-radius: 5px;">Jokes</span></h1>
-        <p style="color: rgba(255, 255, 255, 0.5); font-size: 18px;">"Az oldal amit, nem hagyhatsz el nevetés nélkül"</p>
-        <div class="buttons">
-            <button class="login"><span style="background-color: orange; color: black; padding: 6px; border-radius: 5px;">Bejelentkezés</span></button>
-            <button class="register"><span style="background-color: orange; color: black; padding: 6px; border-radius: 5px;">Regisztrálás</span></button>
+<body class="bg-black h-screen flex items-center flex-col gap-2 text-white">
+    <div class="flex flex-col gap-2 w-[70rem]">
+        <div class="flex bg-[#1b1b1f] max-w-[70rem] px-4 py-2 justify-between items-center">
+            <a href="" class="flex h-max gap-1 text-4xl font-bold flex-col sm:flex-row">
+                <p class="text-white">Dad</p>
+                <p class="bg-[#ff9d0a] text-black px-2 pb-1 rounded-md">Jokes</p>
+            </a>
+            <p class="text-gray-400 italic text-center">"Az oldal amit, nem hagyhatsz el nevetés nélkül"</p>
+            <div class="hidden">
+                <input type="button" class="bg-[#ff9d0a] text-black font-bold text-xl rounded-md p-1" value="Bejelentkezés">
+                <input type="button" class="bg-[#ff9d0a] text-black font-bold text-xl rounded-md p-1" value="Regisztrálás">
+            </div>
+            <div class="relative select-none">
+                <span class="material-symbols-outlined text-[#ff9d0a] select-none text-4xl">menu</span>
+                <input type="checkbox" class="peer absolute w-full h-full top-0 right-0 opacity-0 cursor-pointer">
+                <div class="bg-black h-0 py-0 overflow-y-clip rounded-md peer-checked:py-2 peer-checked:h-auto peer-checked:flex flex-col items-center absolute left-0 w-full text-[#ff9d0a] z-10 transition-all">
+                    <a href="#/login"><span class="material-symbols-outlined text-2xl font-bold">login</span></a>
+                    <a href="#/favorites"><span class="material-symbols-outlined text-2xl font-bold filled">star</span></a>
+                    <a href="#/upload"><span class="material-symbols-outlined text-2xl font-bold">upload</span></a>
+                    <a href="#/logout"><span class="material-symbols-outlined text-2xl font-bold">logout</span></a>
+                </div>
+            </div>
         </div>
+
+        <main class="text-white max-w-[70rem]">
+
+        </main>
     </div>
-    <div class="main">
-        <div class="card">
-            <h1>Billy</h1>
-            <p>"Why did Billy get fired from the banana factory? He kept throwing away the bent ones."</p>
-        </div>
-        <div class="card">
-            <h1>Bicycle</h1>
-            <p>"Why couldn't the bicycle stand up by itself? It was two tired."</p>
-        </div>
-        <div class="card">
-            <h1>The Rumor</h1>
-            <p>"Did you hear the rumor about butter? Well, I'm not going to spread it!"</p>
-        </div>
-        <div class="card">
-            <h1>Taco say</h1>
-            <p>"How does a taco say grace?" "Lettuce pray."</p>
-        </div>
-        <div class="card">
-            <h1>Snowman</h1>
-            <p>"What do you call it when a snowman throws a tantrum?" "A meltdown."</p>
-        </div>
-        
-        
-        
-    </div>
-    
+
+    <script type="module" src="router.js"></script>
+
+    <script>
+        document.querySelectorAll(".fav").forEach(element => {
+            element.addEventListener("click", (e) => {
+                e.target.parentElement.querySelector(".loading").classList.remove("w-0")
+                e.target.parentElement.querySelector(".loading").classList.add("w-full")
+                e.target.classList.toggle("filled")
+                setTimeout(() => {
+                    e.target.parentElement.querySelector(".loading").classList.remove("w-full")
+                    e.target.parentElement.querySelector(".loading").classList.add("w-0")
+                    e.target.parentElement.querySelector(".loading").classList.remove("transition-all")
+                    e.target.parentElement.querySelector(".loading").classList.add("opacity-0")
+                    setTimeout(() => {
+                        e.target.parentElement.querySelector(".loading").classList.add("transition-all")
+                        e.target.parentElement.querySelector(".loading").classList.remove("opacity-0")
+                        e.target.parentElement.querySelector(".loading").classList.add("opacity-100")
+                    }, 0)
+                }, 300)
+            })
+        });
+    </script>
 </body>
 </html>
