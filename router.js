@@ -29,7 +29,7 @@ function navigate() {
     let page = routes[hash]
     // console.log(page)
     if (!page) {
-        loadPage("404.html", document.querySelector("main"))
+        loadPage("pages/404.html", document.querySelector("main"))
         return
     } 
     loadPage(page, document.querySelector("main"))
