@@ -1,3 +1,4 @@
+import { placeName, placePass } from "./main.js"
 import { favorites } from "./pages/favorites.js"
 import { home } from "./pages/home.js"
 import { login } from "./pages/login.js"
@@ -41,7 +42,7 @@ async function loadPage(page, obj) {
     obj.innerHTML = html
 	console.log(page)
     // if (page == "home.html") home()
-    if (page == "pages/login.html") login()
+    if (page == "pages/login.html") login(placeName, placePass)
     else if (page == "pages/register.html") register()
     else if (page == "pages/home.html") home()
     else if (page == "pages/favorites.html") favorites()
