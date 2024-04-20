@@ -12,7 +12,7 @@
 <body class="bg-black h-screen flex items-center flex-col gap-2 text-white">
     <div class="flex flex-col gap-2 max-w-[70rem] w-full">
         <div class="flex bg-[#1b1b1f]  px-4 py-2 justify-between items-center">
-            <a href="" class="flex h-max gap-1 text-4xl font-bold flex-col sm:flex-row">
+            <a href="#/" class="flex h-max gap-1 text-4xl font-bold flex-col sm:flex-row">
                 <p class="text-white">Dad</p>
                 <p class="bg-[#ff9d0a] text-black px-2 pb-1 rounded-md">Jokes</p>
             </a>
@@ -25,7 +25,7 @@
                 <span class="material-symbols-outlined text-[#ff9d0a] select-none text-4xl">menu</span>
                 <input type="checkbox" class="peer absolute w-full h-full top-0 right-0 opacity-0 cursor-pointer">
                 <div class="bg-black h-0 py-0 overflow-y-clip rounded-md peer-checked:py-2 peer-checked:h-auto peer-checked:flex flex-col items-center absolute left-0 w-full text-[#ff9d0a] z-10 transition-all">
-                    <a href=""><span class="material-symbols-outlined filled text-2xl font-bold">home</span></a>
+                    <a href="#/"><span class="material-symbols-outlined filled text-2xl font-bold">home</span></a>
                     <a class="logout-only" href="#/login"><span class="material-symbols-outlined text-2xl font-bold">login</span></a>
                     <a class="hidden log-only" href="#/favorites"><span class="material-symbols-outlined text-2xl font-bold filled">star</span></a>
                     <a class="hidden log-only" href="#/upload"><span class="material-symbols-outlined text-2xl font-bold">upload</span></a>
@@ -40,26 +40,5 @@
     </div>
 
     <script type="module" src="router.js"></script>
-
-    <!-- <script>
-        // document.querySelectorAll(".fav").forEach(element => {
-        //     element.addEventListener("click", (e) => {
-        //         e.target.parentElement.querySelector(".loading").classList.remove("w-0")
-        //         e.target.parentElement.querySelector(".loading").classList.add("w-full")
-        //         e.target.classList.toggle("filled")
-        //         setTimeout(() => {
-        //             e.target.parentElement.querySelector(".loading").classList.remove("w-full")
-        //             e.target.parentElement.querySelector(".loading").classList.add("w-0")
-        //             e.target.parentElement.querySelector(".loading").classList.remove("transition-all")
-        //             e.target.parentElement.querySelector(".loading").classList.add("opacity-0")
-        //             setTimeout(() => {
-        //                 e.target.parentElement.querySelector(".loading").classList.add("transition-all")
-        //                 e.target.parentElement.querySelector(".loading").classList.remove("opacity-0")
-        //                 e.target.parentElement.querySelector(".loading").classList.add("opacity-100")
-        //             }, 0)
-        //         }, 300)
-        //     })
-        // });
-    </script> -->
 </body>
 </html>

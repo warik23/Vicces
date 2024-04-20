@@ -30,3 +30,24 @@ export function updateMenu() {
 export function getUsers() {
 	return JSON.parse(localStorage.getItem('users')) || []
 }
+
+function toTitleCase(str) {
+    return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
+        return match.toUpperCase();
+    });
+}
+
+export function getJokeTitke(joke) {
+	let jokearr = joke.split(" ")
+	if (jokearr.includes("a")) {
+		let index = jokearr.indexOf("a")
+		let title = jokearr[index + 1] + " " + jokearr[index + 2]
+		return toTitleCase(title)
+	} else if (jokearr.includes("the")) {
+		let index = jokearr.indexOf("the")
+		let title = "The " + jokearr[index + 1]
+		return toTitleCase(title)
+	} else {
+		return "Title"
+	}
+}
