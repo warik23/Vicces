@@ -4,8 +4,6 @@ export const home = () => {
 	console.log("home js");
 
 	function reroll() {
-		document.getElementById("jokes").innerHTML = ""
-	
 		fetchData("https://api.api-ninjas.com/v1/dadjokes?limit=8", render)
 	}
 	reroll()
@@ -13,6 +11,12 @@ export const home = () => {
   	document.getElementById("reroll").addEventListener("click", reroll)
 
 	function render(data) {
+		document.getElementById("jokes").innerHTML = `
+		<p></p>
+		<p class="text-right">No Jokes for you...</p>
+		<p>Please <a href="#/login" class="text-[#ff9d0a] font-bold">Log In</a></p>`
+		if (!getCurrentUserData()) return
+		document.getElementById("jokes").innerHTML = ""
 		console.log(data)
 		data.forEach(e => {
 			document.getElementById("jokes").innerHTML += `
