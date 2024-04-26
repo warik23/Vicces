@@ -3,14 +3,22 @@ import { fetchData, getCurrentUserData, getJokeTitle, getUsers } from "../main.j
 export const home = () => {
 	console.log("home js");
 
+	let jokeBuffer = []
+
 	function reroll() {
-		fetchData("https://api.api-ninjas.com/v1/dadjokes?limit=8", render)
+		if (!getCurrentUserData()) return
+		// for (let i = 0; i < 8; i++) {
+			fetchData("https://api.api-ninjas.com/v1/dadjokes?", render)
+			console.log("asd");
+		// }
+		// render(jokeBuffer)
 	}
 	reroll()
 
   	document.getElementById("reroll").addEventListener("click", reroll)
 
 	function render(data) {
+		console.log(data)
 		document.getElementById("jokes").innerHTML = `
 		<p></p>
 		<p class="text-right">No Jokes for you...</p>
@@ -21,8 +29,8 @@ export const home = () => {
 		data.forEach(e => {
 			document.getElementById("jokes").innerHTML += `
 			<div class="card border border-[#363b3d] rounded-md p-2 relative">
-				<h1 class="text-2xl font-bold text-[#ff9d0a]">${getJokeTitle(e["joke"])}</h1>
-				<p class="joke">${e["joke"]}</p>
+				<h1 class="text-2xl font-bold text-[#ff9d0a]">${getJokeTitle(e[0]["joke"])}</h1>
+				<p class="joke">${e[0]["joke"]}</p>
 				<span class="fav material-symbols-outlined absolute right-1 bottom-1 text-[#ff9d0a] select-none cursor-pointer opacity-0 transition-all">star</span>
 				<div class="bg-[#ff9d0a] w-0 absolute bottom-0 left-0 h-1 loading transition-all"></div>
 			</div>`

@@ -41,51 +41,32 @@ function toTitleCase(str) {
 
 export function getJokeTitle(joke) {
 	let jokearr = joke.toLowerCase().split(" ")
-  const search = "a an the has had do don't did didn't what did their at be my they his her this in".split(" ")
-  // search.forEach(e => {
-  //   if (jokearr.includes(e)) {
-  //     console.log(e);
-  //     return getWordAfterWord(jokearr, e)
-  //   }
-  // })
-	if (jokearr.includes("a")) return getWordAfterWord(jokearr, "a")
-	if (jokearr.includes("an")) return getWordAfterWord(jokearr, "an")
-  else if (jokearr.includes("the")) return getWordAfterWord(jokearr, "the")
-  else if (jokearr.includes("has")) return getWordAfterWord(jokearr, "has")
-	else if (jokearr.includes("had")) return getWordAfterWord(jokearr, "had")
-	else if (jokearr.includes("do")) return getWordAfterWord(jokearr, "do")
-	else if (jokearr.includes("do")) return getWordAfterWord(jokearr, "don't")
-	else if (jokearr.includes("did")) return getWordAfterWord(jokearr, "did")
-	else if (jokearr.includes("did")) return getWordAfterWord(jokearr, "didn't")
-	else if (jokearr.includes("what")) return getWordAfterWord(jokearr, "what")
-	else if (jokearr.includes("their")) return getWordAfterWord(jokearr, "their")
-	else if (jokearr.includes("at")) return getWordAfterWord(jokearr, "at")
-	else if (jokearr.includes("be")) return getWordAfterWord(jokearr, "be")
-	else if (jokearr.includes("my")) return getWordAfterWord(jokearr, "my")
-	else if (jokearr.includes("they")) return getWordAfterWord(jokearr, "they")
-  else if (jokearr.includes("his")) return getWordAfterWord(jokearr, "his")
-  else if (jokearr.includes("her")) return getWordAfterWord(jokearr, "her") 
-  else if (jokearr.includes("this")) return getWordAfterWord(jokearr, "this") 
-  else if (jokearr.includes("like")) return getWordAfterWord(jokearr, "like") 
-  else if (jokearr.includes("in")) return getWordAfterWord(jokearr, "in") 
-  return "Title"
+  	const search = "a an the has had do don't did didn't what not did their at be my they his her this in I'm they're you're".split(" ")
+  	for (const i of search) if (jokearr.includes(i)) return getWordAfterWord(jokearr, i)
+	return "Title"
 }
 
 function getWordAfterWord(arr, word) {
-  let index = arr.indexOf(word)
-  let title = arr[index + 1]
-  return toTitleCase(title)
+	let index = arr.indexOf(word)
+	let title = arr[index + 1]
+	return toTitleCase(title)
 }
 
 export const fetchData=async (url, render)=>{
+	const limit = 4
 	let configObj= {
 		method: "GET",
 		headers: { "X-Api-Key": apiKey }
 	}
 	try {
-		const response = await fetch(url, configObj);
-		const data = await response.json();
-		render(data);
+		let jokeBuffer = []
+		for (let i = 0; i < limit; i++) {
+			const response = await fetch(url, configObj);
+			const data = await response.json();
+			jokeBuffer.push(data)
+			console.log(jokeBuffer)
+		}
+		render(jokeBuffer)
 	} catch (error) {
 		console.error("Error:", error);
 	}
