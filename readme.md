@@ -1,1 +1,1 @@
-dadjokes25.netlify.app
+[Weboldal](dadjokes25.netlify.app)
